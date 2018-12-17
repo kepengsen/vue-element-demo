@@ -10,40 +10,44 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'about',
-      component: About
+      redirect: '/about'
     },
     {
       path: '/about',
       name: 'about',
+      meta: { title: '关于', keepAlive: true },
       component: About
     },
     {
       path: '/button',
       name: 'Button',
-      component: () => import(/* webpackChunkName: "about" */ '@/views/Component/Button.vue')
+      meta: { title: '按钮', keepAlive:false },
+      component: () => import(/* webpackChunkName: "about" */ '@/views/Component/Button.vue'),
     },
     {
       path: '/icon',
       name: 'Icon',
+      meta: { title: '图标', keepAlive: true },
       component: () => import('@/views/Component/Icon.vue')
     },
     {
       path: '/color',
       name: 'Color',
+      meta: { title: '色彩', keepAlive: false },
       component: () => import('@/views/Component/Color.vue')
     },
     {
       path: '/layout',
       name: 'Layout',
+      meta: { title: '布局', keepAlive: true },
       component: () => import('@/views/Component/Layout.vue')
     },
-    {path: '/container',name: 'Container',component: () => import('@/views/Component/Container.vue')},
+    { path: '/container', name: 'Container',meta: { title: '布局容器', keepAlive: false },component: () => import('@/views/Component/Container.vue')},
     
     
-    { path: '/radio', name: 'Radio', component: () => import('@/views/Form/Radio.vue')},
-    { path: '/checkbox', name: 'Checkbox', component: () => import('@/views/Form/Checkbox.vue')},
-    { path: '/input', name: 'Input', component: () => import('@/views/Form/Input.vue')},
+    { path: '/radio', name: 'Radio', meta: { title: '单选', keepAlive: false }, component: () => import('@/views/Form/Radio.vue')},
+    { path: '/checkbox', name: 'Checkbox', meta: { title: '多选', keepAlive: false }, component: () => import('@/views/Form/Checkbox.vue')},
+    { path: '/input', name: 'Input', meta: { title: '输入框', keepAlive: false }, component: () => import('@/views/Form/Input.vue')},
     { path: '/inputNumber', name: 'InputNumber', component: () => import('@/views/Form/InputNumber.vue')},
     { path: '/select', name: 'Select', component: () => import('@/views/Form/Select.vue')},
     { path: '/cascader', name: 'Cascader', component: () => import('@/views/Form/Cascader.vue')},
