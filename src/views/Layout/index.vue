@@ -2,7 +2,9 @@
   <div id="layout">
     <el-container>
       <el-aside>
-        <LeftMenu></LeftMenu>
+        <el-scrollbar class="base">
+          <LeftMenu></LeftMenu>
+        </el-scrollbar>
       </el-aside>
       <el-container>
         <el-header>
@@ -19,11 +21,17 @@
           </el-row>
         </el-header>
         <el-main>
-          <TagsView></TagsView>
-          <keep-alive >
-            <transition><router-view v-if="$route.meta.keepAlive"/></transition> 
-          </keep-alive>
-             <transition><router-view v-if="!$route.meta.keepAlive"/></transition> 
+          <el-scrollbar class="base">
+            <TagsView></TagsView>
+            <keep-alive>
+              <transition>
+                <router-view v-if="$route.meta.keepAlive"/>
+              </transition>
+            </keep-alive>
+            <transition>
+              <router-view v-if="!$route.meta.keepAlive"/>
+            </transition>
+          </el-scrollbar>
         </el-main>
       </el-container>
     </el-container>
@@ -35,7 +43,7 @@ import LeftMenu from "@/views/Layout/LeftMenu";
 import TagsView from "@/views/Layout/TagsView";
 export default {
   name: "layout",
-  components:{LeftMenu,TagsView},
+  components: { LeftMenu, TagsView },
   data() {
     return {};
   },
@@ -72,8 +80,10 @@ body {
       color: #fff;
       line-height: 60px;
     }
-    .el-main{
+    .el-main {
       padding: 0;
+      height: 100%;
+      
     }
     .nav-menu {
       font-size: 20px;

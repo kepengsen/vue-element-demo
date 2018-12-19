@@ -18,31 +18,12 @@ export default new Router({
       meta: { title: '关于', keepAlive: true },
       component: About
     },
-    {
-      path: '/button',
-      name: 'Button',
-      meta: { title: '按钮', keepAlive:false },
-      component: () => import(/* webpackChunkName: "about" */ '@/views/Component/Button.vue'),
-    },
-    {
-      path: '/icon',
-      name: 'Icon',
-      meta: { title: '图标', keepAlive: true },
-      component: () => import('@/views/Component/Icon.vue')
-    },
-    {
-      path: '/color',
-      name: 'Color',
-      meta: { title: '色彩', keepAlive: false },
-      component: () => import('@/views/Component/Color.vue')
-    },
-    {
-      path: '/layout',
-      name: 'Layout',
-      meta: { title: '布局', keepAlive: true },
-      component: () => import('@/views/Component/Layout.vue')
-    },
+    {path: '/button',name: 'Button',meta: { title: '按钮', keepAlive:false },component: () => import(/* webpackChunkName: "about" */ '@/views/Component/Button.vue'),},
+    {path: '/icon',name: 'Icon',meta: { title: '图标', keepAlive: true },component: () => import('@/views/Component/Icon.vue')},
+    {path: '/color',name: 'Color',meta: { title: '色彩', keepAlive: false },component: () => import('@/views/Component/Color.vue')},
+    {path: '/layout', name: 'Layout', meta: { title: '布局', keepAlive: true }, component: () => import('@/views/Component/Layout.vue')},
     { path: '/container', name: 'Container',meta: { title: '布局容器', keepAlive: false },component: () => import('@/views/Component/Container.vue')},
+    { path: '/CodeEdit', name: 'CodeEdit', meta: { title: '代码编辑器', keepAlive: true }, component: () => import('@/views/Component/CodeEdit.vue')},
     
     
     { path: '/radio', name: 'Radio', meta: { title: '单选', keepAlive: false }, component: () => import('@/views/Form/Radio.vue')},

@@ -1,36 +1,96 @@
 @charset "utf-8";
-body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table,
+th,
+tr,
+td,
+tbody,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
     margin: 0;
     padding: 0;
 }
-html,body{
-  height: 100%;
+
+html,
+body {
+    height: 100%;
 }
-html{
+
+html {
     font-size: 62.5%;
 }
 
 body {
-    font: 1.2rem/1.2 'Microsoft YaHei','宋体', Tahoma, Arial, sans-serif;
+    font: 1.2rem/1.2 'Microsoft YaHei', '宋体', Tahoma, Arial, sans-serif;
     color: #555;
     background-color: #F7F7F7;
 }
-em, i {
+
+em,
+i {
     font-style: normal;
 }
-ul,li{
+
+ul,
+li {
     list-style-type: none;
 }
-a{
- text-decoration:none;
+
+a {
+    text-decoration: none;
 }
+
 strong {
     font-weight: normal;
 }
+
 .clearfix:after {
     content: "";
     display: block;
     visibility: hidden;
     height: 0;
     clear: both;
+}
+
+.el-scrollbar {
+    height: 100%;
+}
+
+.base .el-scrollbar__wrap {
+    overflow: scroll;
+    overflow-x: auto; // background: red;
+}
+
+.base .el-scrollbar__view {
+    height: 100%;
 }

@@ -29,10 +29,10 @@ export default {
       this.axios.post('/news')
       .then(response=>{
         console.log(response)
-        this.dataList=response.list;
+        this.dataList=response.data;
       })
     },
-    getLogin(){
+    getUser(){
       this.axios.post('/user')
       .then(response=>{
         console.log(response)
@@ -42,7 +42,7 @@ export default {
   mounted() {
     // this.getList();
     this.getNews();
-    this.getLogin();
+    this.getUser();
   }
 };
 </script>

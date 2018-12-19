@@ -10,6 +10,7 @@ export default [
             { name: "色彩", name_en: "Color", router: "/color"},
             { name: "布局", name_en: "Layout", router: "/layout"},
             { name: "布局容器", name_en: "Container", router: "/Container"},
+            { name: "代码编辑器", name_en: "CodeEdit", router: "/CodeEdit"},
         ]
     },
     {
