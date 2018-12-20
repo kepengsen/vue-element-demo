@@ -6,11 +6,15 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     isCollapse: false,
-    visitedTags: []
+    visitedTags: [],
+    langType:null
   },
   mutations: {
     isCollapse(state) {
       state.isCollapse = !state.isCollapse;
+    },
+    toggleLanguage(state, payload){
+      state.langType = payload.langType;
     },
     addTags(state, payload) {
       let flag = state.visitedTags.some(

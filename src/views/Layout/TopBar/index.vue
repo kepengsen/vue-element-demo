@@ -1,0 +1,58 @@
+<template>
+  <div class="topBar">
+    <el-row :gutter="0">
+      <el-col :span="1">
+        <div class="grid-content bg-purple">
+          <i class="el-icon-menu nav-menu" @click="isCollapse()"></i>
+          <i class="icon-recovery iconfont" @click="isCollapse()"></i>
+        </div>
+      </el-col>
+      <el-col :span="12">
+        <el-row type="flex" class="row-right" justify="end" style="margin-right:-15px">
+          <el-col :span="5">
+            <a class="animated fadeIn">{{userName}}</a>
+          </el-col>
+          <el-col :span="2">
+            <i class="el-icon-bell" title="切换语言" @click="toggleLanguage">切换语言</i>
+          </el-col>
+
+          <el-col :span="2">
+            <i class="el-icon-d-arrow-right logout" title="退出" @click.prevent="logout"></i>
+          </el-col>
+        </el-row>
+      </el-col>
+    </el-row>
+  </div>
+</template>
+
+<script>
+import Cookie from "js-cookie";
+export default {
+  name: "topBar",
+  data() {
+    return {
+      userName: Cookie.get("userName") || ""
+    };
+  },
+  components: {},
+  methods: {
+    isCollapse() {
+      this.$store.commit("isCollapse");
+    },
+    toggleLanguage() {
+      const type=this.$store.state.langType=='cn'?'en':'cn';
+      console.log(type)
+      this.$store.commit("toggleLanguage",{langType:type});
+    }
+  },
+  mounted() {
+    /*页面挂载结束*/
+  },
+  updated() {
+    /*数据更新完成*/
+  }
+};
+</script>
+
+<style scoped>
+</style>

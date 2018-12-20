@@ -21,3 +21,12 @@ Mock.mock('/news', 'post', {
         'date': '@now()',
     }]
 })
+
+Mock.mock('/login','post',{
+    user:{
+        'userName':'@cname',
+        'token':"@string(30)"
+    },
+    ret:'success',
+    msg:'成功'
+})

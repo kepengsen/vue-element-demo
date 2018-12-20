@@ -8,17 +8,7 @@
       </el-aside>
       <el-container>
         <el-header>
-          <el-row :gutter="0">
-            <el-col :span="1">
-              <div class="grid-content bg-purple">
-                <i class="el-icon-menu nav-menu" @click="isCollapse()"></i>
-                <i class="icon-recovery iconfont" @click="isCollapse()"></i>
-              </div>
-            </el-col>
-            <el-col :span="16">
-              <div class="grid-content bg-purple"></div>
-            </el-col>
-          </el-row>
+          <top-bar></top-bar>
         </el-header>
         <el-main>
           <el-scrollbar class="base">
@@ -41,18 +31,17 @@
 <script>
 import LeftMenu from "@/views/Layout/LeftMenu";
 import TagsView from "@/views/Layout/TagsView";
+import TopBar from "@/views/Layout/TopBar";
 export default {
   name: "layout",
-  components: { LeftMenu, TagsView },
+  components: { LeftMenu, TagsView,TopBar },
   data() {
     return {};
   },
   // components: { LeftMenu },
   methods: {
     /*组件内部的方法*/
-    isCollapse() {
-      this.$store.commit("isCollapse");
-    }
+    
   },
   mounted() {},
   updated() {

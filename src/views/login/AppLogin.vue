@@ -11,19 +11,19 @@
         status-icon
       >
         <h3 class="title">系统登录</h3>
-        <el-form-item prop="account">
+        <el-form-item prop="username">
           <el-input
             type="text"
-            v-model="ruleForm.account"
+            v-model="ruleForm.username"
             auto-complete="off"
             placeholder="账号"
             id="loginEmail"
           ></el-input>
         </el-form-item>
-        <el-form-item prop="checkPass">
+        <el-form-item prop="password">
           <el-input
             type="password"
-            v-model="ruleForm.checkPass"
+            v-model="ruleForm.password"
             auto-complete="off"
             placeholder="密码"
             id="loginPassword"
@@ -48,38 +48,62 @@
         </el-form-item>
       </el-form>
     </div>
+    <vue-particles
+      color="#fff"
+      :particleOpacity="0.7"
+      :particlesNumber="60"
+      shapeType="star"
+      :particleSize="4"
+      linesColor="#fff"
+      :linesWidth="1"
+      :lineLinked="true"
+      :lineOpacity="0.4"
+      :linesDistance="150"
+      :moveSpeed="2"
+      :hoverEffect="true"
+      hoverMode="grab"
+      :clickEffect="true"
+      clickMode="push"
+      class="lizi"
+    ></vue-particles>
   </div>
 </template>
 
 <script>
-
+import Cookie from 'js-cookie'
 export default {
-  name: "app-login",
+  name: "Applogin",
   data() {
     return {
       logining: false,
       fromUrl: "/",
       ruleForm: {
-        account: "admin",
-        checkPass: "123456"
+        username: "admin",
+        password: "123456"
       },
       rules: {
-        account: [{ required: true, message: "请输入账号", trigger: "blur" }],
-        checkPass: [{ required: true, message: "请输入密码", trigger: "blur" }]
+        username: [{ required: true, message: "请输入账号", trigger: "blur" }],
+        password: [{ required: true, message: "请输入密码", trigger: "blur" }]
       },
       checked: false
     };
   },
   methods: {
-   
+    handleSubmit(){
+      this.$refs.ruleForm.validate(valid=>{
+        if(valid){
+         this.axios.post('/login',{username:this.ruleForm.account,password:this.ruleForm.password})
+         .then(response=>{
+           Cookie.set('userName',response.user.userName)
+           Cookie.set('token',response.user.token)
+           this.$router.push("about");
+         })
+        }else{
+          return false;
+        }
+      })
+    }
   },
-  beforeRouteEnter(to, from, next) {
-    next(vm => {
-      if (from.fullPath !== "/register" && !from.meta.errorPage) {
-        vm.fromUrl = from.fullPath;
-      }
-    });
-  }
 };
 </script>
 
@@ -87,10 +111,11 @@ export default {
 .title {
   text-align: center;
   margin-bottom: 15px;
+  color: #fff;
 }
 
 .page {
-  background-color: #eff3f4;
+  background-color: #2a3a40;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -98,23 +123,27 @@ export default {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
+  overflow: hidden;
 }
 
 .login-box {
   position: absolute;
   top: 50%;
   left: 50%;
+  background: rgba(216, 220, 229, 0.3);
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   display: block;
   width: 100%;
   max-width: 400px;
-  background-color: #fff;
   margin: 0;
   padding: 2.25em;
   box-sizing: border-box;
   border: solid 1px #ddd;
   border-radius: 0.5em;
   font-family: "Source Sans Pro", sans-serif;
+}
+.lizi {
+  height: 100%;
 }
 </style>

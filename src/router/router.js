@@ -58,15 +58,14 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  console.log({ to, from, next })
-  console.log(Cookie.get('user'))
-  if (!Cookie.get('user') && to.name !== 'login') {
+  console.log(Cookie.get('userName'))
+  if (!Cookie.get('userName') && to.name !== 'login') {
     next({
       replace: true,
       name: 'login'
     })
     console.log('没有登录，且不是要登录')
-  } else if (Cookie.get('user') && to.name === 'login') {
+  } else if (Cookie.get('userName') && to.name === 'login') {
     next({
       name: 'about'
     })

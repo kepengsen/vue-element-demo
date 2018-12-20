@@ -22,6 +22,7 @@
     "@vue/cli-service": "^3.0.3",
     "axios": "^0.18.0",
     "mockjs": "^1.0.1-beta3",
+    "vue-particles": "^1.0.9",
     "vue-template-compiler": "^2.5.17"
   }
 }

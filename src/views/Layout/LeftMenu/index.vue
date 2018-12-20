@@ -51,7 +51,7 @@ export default {
   data() {
     return {
       MenuList: MenuList,
-      langType: "cn"
+      langType: this.$store.state.langType||'cn'
     };
   },
   store,
