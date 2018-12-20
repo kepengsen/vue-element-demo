@@ -16,7 +16,7 @@ export default new Vuex.Store({
       let flag = state.visitedTags.some(
         item => item.path === payload.route.path
       );//打开标签后，判断数组中是否已经存在该路由
-      console.log(flag ? '存在' : '不存在');
+      // console.log(flag ? '存在' : '不存在');
       if (!flag) {
         state.visitedTags.push(
           Object.assign(
