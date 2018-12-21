@@ -17,7 +17,7 @@ const routes = [
       { path: 'color', name: 'Color', meta: { title: '色彩', keepAlive: false }, component: () => import('@/views/Component/Color.vue') },
       { path: 'layout', name: 'Layout', meta: { title: '布局', keepAlive: true }, component: () => import('@/views/Component/Layout.vue') },
       { path: 'container', name: 'Container', meta: { title: '布局容器', keepAlive: false }, component: () => import('@/views/Component/Container.vue') },
-      { path: 'CodeEdit', name: 'CodeEdit', meta: { title: '代码编辑器', keepAlive: true }, component: () => import('@/views/Component/CodeEdit.vue') },
+      { path: 'codeEdit', name: 'CodeEdit', meta: { title: '代码编辑器', keepAlive: true }, component: () => import('@/views/Component/CodeEdit.vue') },
 
       { path: 'radio', name: 'Radio', meta: { title: '单选', keepAlive: false }, component: () => import('@/views/Form/Radio.vue') },
       { path: 'checkbox', name: 'Checkbox', meta: { title: '多选', keepAlive: false }, component: () => import('@/views/Form/Checkbox.vue') },
@@ -58,21 +58,17 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  console.log(Cookie.get('userName'))
   if (!Cookie.get('userName') && to.name !== 'login') {
     next({
       replace: true,
       name: 'login'
     })
-    console.log('没有登录，且不是要登录')
   } else if (Cookie.get('userName') && to.name === 'login') {
     next({
       name: 'about'
     })
-    console.log('登录过了，且还要登录')
   } else {
     next();
-    console.log('其他')
   }
 
 })

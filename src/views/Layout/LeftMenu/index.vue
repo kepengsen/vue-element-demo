@@ -6,7 +6,7 @@
         <el-menu
           :collapse="this.$store.state.isCollapse"
           :unique-opened="true"
-          default-active="/"
+          :default-active="menuSelect"
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose"
@@ -17,16 +17,16 @@
           :router="true"
         >
           <template  v-for="(item,key) in MenuList">
-              <el-submenu v-if="item.children.length !== 0" :index="item.router+'/:abc'" :key="key">
+              <el-submenu v-if="item.children.length != 0" :index="item.router" :key="key">
             <template slot="title">
               <i :class="item.icon"></i>
-                <span>{{langType === 'en'? item.name_en: item.name}}</span>
+                <span>{{langType=='en'? item.name_en: item.name}}</span>
             </template>
             <el-menu-item
               v-for="child in item.children"
               :index="child.router"
               :key="child.router"
-            >{{langType === 'en'? child.name_en: child.name}}</el-menu-item>
+            >{{langType=='en'? child.name_en: child.name}}</el-menu-item>
           </el-submenu>
 
           <el-menu-item v-else :index="item.router" :key="key">
@@ -51,10 +51,17 @@ export default {
   data() {
     return {
       MenuList: MenuList,
-      langType: this.$store.state.langType||'cn'
     };
   },
   store,
+  computed: {
+    langType(){
+      return this.$store.state.langType?'cn':'en'
+    },
+    menuSelect(){
+       return this.$route.path
+    }
+  },
   components: {},
   methods: {
     /*组件内部的方法*/
@@ -73,6 +80,7 @@ export default {
   },
   updated() {
     /*数据更新完成*/
+    
   }
 };
 </script>

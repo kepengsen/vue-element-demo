@@ -24,22 +24,13 @@ export default {
     };
   },
   methods: {
-    getList() {
-      const url =
-        "http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=2";
-      this.axios.get(url).then(response => {
-        console.log(response);
-      });
-    },
     getNews() {
       this.axios.post("/news").then(response => {
-        console.log(response);
         this.dataList = response.data;
       });
     },
     getUser() {
       this.axios.post("/user").then(response => {
-        console.log(response);
       });
     }
   },

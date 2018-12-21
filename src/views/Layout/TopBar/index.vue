@@ -13,7 +13,7 @@
             <a class="animated fadeIn">{{userName}}</a>
           </el-col>
           <el-col :span="2">
-            <i class="el-icon-bell" title="切换语言" @click="toggleLanguage">切换语言</i>
+            <a @click.prevent="toggleLanguage">切换语言</a>
           </el-col>
 
           <el-col :span="2">
@@ -40,9 +40,7 @@ export default {
       this.$store.commit("isCollapse");
     },
     toggleLanguage() {
-      const type=this.$store.state.langType=='cn'?'en':'cn';
-      console.log(type)
-      this.$store.commit("toggleLanguage",{langType:type});
+      this.$store.commit("toggleLanguage");
     },
     logout(){
       if(Cookie.get('userName')){

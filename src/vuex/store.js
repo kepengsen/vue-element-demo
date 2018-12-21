@@ -7,14 +7,14 @@ export default new Vuex.Store({
   state: {
     isCollapse: false,
     visitedTags: [],
-    langType:null
+    langType:true
   },
   mutations: {
     isCollapse(state) {
       state.isCollapse = !state.isCollapse;
     },
-    toggleLanguage(state, payload){
-      state.langType = payload.langType;
+    toggleLanguage(state){
+      state.langType =!state.langType;
     },
     addTags(state, payload) {
       let flag = state.visitedTags.some(
