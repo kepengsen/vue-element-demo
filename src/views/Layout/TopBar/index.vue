@@ -17,7 +17,7 @@
           </el-col>
 
           <el-col :span="2">
-            <i class="el-icon-d-arrow-right logout" title="退出" @click.prevent="logout"></i>
+            <a @click.prevent="logout">退出</a>
           </el-col>
         </el-row>
       </el-col>
@@ -43,6 +43,13 @@ export default {
       const type=this.$store.state.langType=='cn'?'en':'cn';
       console.log(type)
       this.$store.commit("toggleLanguage",{langType:type});
+    },
+    logout(){
+      if(Cookie.get('userName')){
+        Cookie.remove('userName')
+        Cookie.remove('token')
+        this.$router.push('login')
+      }
     }
   },
   mounted() {
