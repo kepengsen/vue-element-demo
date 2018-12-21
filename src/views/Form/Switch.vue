@@ -1,12 +1,12 @@
 <template>
-  <div class="Switch">
+  <div class="switchs">
         <h1>{{msg}}</h1>       
   </div>
 </template>
 
 <script>
    export default{
-     name:"Switch",
+     name:"switchs",
      data() {
          return {
            msg:'我是Switch'

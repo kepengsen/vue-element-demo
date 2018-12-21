@@ -10,9 +10,9 @@
         <el-header>
           <top-bar></top-bar>
         </el-header>
+          <TagsView></TagsView>
         <el-main>
           <el-scrollbar class="base">
-            <TagsView></TagsView>
             <keep-alive>
               <transition>
                 <router-view v-if="$route.meta.keepAlive"/>

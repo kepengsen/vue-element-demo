@@ -1,16 +1,17 @@
 <template>
-  <div class="tag-wrap">
+  <div class="tag-wrap" ref="tagWrap">
     <div class="tag-overflow" ref="tagOver">
-      <router-link
-        class="tags-item"
-        :to="item"
+      <el-tag
+        class="tag"
         :key="item.path"
         :class="isActive(item)?'active':''"
-        v-for="(item) in this.$store.state.visitedTags"
-      >
+        v-for="(item) in tagList"
+        closable
+        :type="item.type"
+        @click.native="tagClick(item)"
+        @close.prevent="closeSelectedTag(item)">
         {{item.meta.title}}
-        <span class="el-icon-close" @click.prevent.stop="closeSelectedTag(item)"></span>
-      </router-link>
+      </el-tag>
     </div>
   </div>
 </template>
@@ -24,6 +25,11 @@ export default {
     };
   },
   components: {},
+  computed: {
+     tagList () {
+      return this.$store.state.visitedTags
+    },
+  },
   methods: {
     /*组件内部的方法*/
     addTags() {
@@ -49,7 +55,11 @@ export default {
           }
         }
       });
+    },
+    tagClick(item){
+      this.$router.push({name:item.name})
     }
+
   },
   watch: {
     $route() {
@@ -70,9 +80,9 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
+
 .tag-wrap {
-  line-height: 34px;
   height: 34px;
   background-color: #fff;
   border-bottom: 1px solid #d8dce5;
@@ -83,25 +93,18 @@ export default {
   &::-webkit-scrollbar {
     height: 0;
   }
-  .tags-item {
-    cursor: pointer;
-  }
-  a {
+  .tag{
     border-radius: 0;
-    display: inline-block;
-    margin: 0 2px;
-    padding: 0 10px;
-    border: 1px solid #eee;
+    cursor: pointer;
     color: #495060;
-    height: 26px;
-    line-height: 26px;
-    background-color: #fff;
+    height: 25px;
+    line-height: 25px;
+    // background-color: #fff;
     transition: all 0.2s;
     &.active {
       background-color: #1fc7c7;
       color: #fff !important;
-      border-color: #1fc7c7;
-      padding: 0 12px;
+      border-color: #d0ebeb;
       padding-left: 20px;
       position: relative;
       &:after {
@@ -125,7 +128,7 @@ export default {
       color: #495060;
       transition: all 0.2s;
       &:hover {
-        background-color: #eee;
+        // background-color: #eee;
         color: #fff;
         transform: scale(1);
       }

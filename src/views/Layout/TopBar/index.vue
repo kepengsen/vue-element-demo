@@ -12,7 +12,7 @@
           <el-col :span="5">
             <a class="animated fadeIn">{{userName}}</a>
           </el-col>
-          <el-col :span="2">
+          <el-col :span="4">
             <a @click.prevent="toggleLanguage">切换语言</a>
           </el-col>
 
