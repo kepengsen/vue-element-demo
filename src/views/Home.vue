@@ -30,14 +30,15 @@ export default {
       });
     },
     getUser() {
-      this.axios.post("/user").then(response => {
+      this.axios.post("/navigation/data").then(response => {
+        console.log(response)
       });
     }
   },
   mounted() {
     // this.getList();
     this.getNews();
-    this.getUser();
+    // this.getUser();
   }
 };
 </script>

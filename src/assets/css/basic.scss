@@ -82,7 +82,7 @@ strong {
     clear: both;
 }
 
-.el-scrollbar {
+.base.el-scrollbar {
     height: 100%;
 }
 
@@ -91,6 +91,6 @@ strong {
     overflow-x: auto; // background: red;
 }
 
-.base .el-scrollbar__view {
+.el-scrollbar__view {
     height: 100%;
 }

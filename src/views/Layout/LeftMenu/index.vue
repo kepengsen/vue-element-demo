@@ -72,7 +72,7 @@ export default {
       // console.log({ key, keyPath });
     },
     handleSelect(key, keyPath,vm) {
-      // console.log({ key, keyPath,vm });
+      console.log({ key, keyPath,vm });
     }
   },
   mounted() {

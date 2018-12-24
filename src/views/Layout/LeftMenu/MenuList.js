@@ -2,7 +2,7 @@ export default [
     {
         name: "组件",
         name_en: "Component",
-        router: "1",
+        router: "/aa",
         icon: "el-icon-time",
         children: [
             { name: "按钮", name_en: "Button", router: "/button"},
@@ -16,7 +16,7 @@ export default [
     {
         name: "表单",
         name_en: "Form",
-        router: "2",
+        router: "/bb",
         icon: "el-icon-time",
         children: [
             { name: "单选框", name_en: "Radio", router: "/radio" },
@@ -39,7 +39,7 @@ export default [
     {
         name: "提示",
         name_en: "Notice",
-        router: "3",
+        router: "/cc",
         icon: "el-icon-time",
         children: [
             { name: "告警", name_en: "Alert", router: "/alert" },
@@ -50,9 +50,9 @@ export default [
         ]
     },
     {
-        name: "关于",
-        name_en: "About",
-        router: "/about",
+        name: "首页",
+        name_en: "home",
+        router: "/home",
         icon: "el-icon-time",
         children: [
             

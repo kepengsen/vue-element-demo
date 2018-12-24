@@ -64,6 +64,7 @@ export default {
   watch: {
     $route() {
       this.addTags();
+      
     } //地址栏变化了就触发这个添加方法
   },
   mounted() {
@@ -91,7 +92,7 @@ export default {
   overflow-x: auto;
   overflow-y: hidden;
   &::-webkit-scrollbar {
-    height: 0;
+    height: 0px;
   }
   .tag{
     border-radius: 0;
@@ -139,4 +140,7 @@ export default {
     justify-content: flex-start;
   }
 }
+
+
+
 </style>

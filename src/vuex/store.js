@@ -37,6 +37,7 @@ export default new Vuex.Store({
       } //数组中路由存在不push ,单击左侧路由变化,点击标签路由变化均触发
     }, //添加标签
     closeTags(state, payload) {
+      if (payload.view.path=='/home') return;
       for (const [key, item] of state.visitedTags.entries()) {
         if (item.path === payload.view.path) {
           state.visitedTags.splice(key, 1);

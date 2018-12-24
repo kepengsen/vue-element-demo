@@ -7,6 +7,9 @@
           <i class="icon-recovery iconfont" @click="isCollapse()"></i>
         </div>
       </el-col>
+      <el-col :span="10">
+          <breadcrumb></breadcrumb>
+      </el-col>
       <el-col :span="12">
         <el-row type="flex" class="row-right" justify="end" style="margin-right:-15px">
           <el-col :span="5">
@@ -26,6 +29,7 @@
 </template>
 
 <script>
+import breadcrumb from '../Breadcrumb'
 import Cookie from "js-cookie";
 export default {
   name: "topBar",
@@ -34,7 +38,7 @@ export default {
       userName: Cookie.get("userName") || ""
     };
   },
-  components: {},
+  components: {breadcrumb},
   methods: {
     isCollapse() {
       this.$store.commit("isCollapse");

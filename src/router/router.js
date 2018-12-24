@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import About from '@/views/About.vue'
+import Home from '@/views/Home.vue'
 import Layout from '@/views/Layout'
 import Cookie from 'js-cookie'
 
@@ -10,8 +10,11 @@ const routes = [
   { path: '/login', name: 'login', component: () => import('@/views/login/AppLogin.vue') },
   { path: '/register', name: 'register', component: () => import('@/views/login/AppRegister.vue') },
   {
-    path: '/', redirect: '/about', component: Layout, children: [
-      { path: 'about', name: 'about', meta: { title: '关于', keepAlive: true }, component: About },
+    path: '/',
+    component: Layout,
+    redirect: '/home',
+    children: [
+      { path: 'home', name: 'home', meta: { title: '首页', keepAlive: true }, component: Home },
       { path: 'button', name: 'Button', meta: { title: '按钮', keepAlive: false }, component: () => import('@/views/Component/Button.vue'), },
       { path: 'icon', name: 'Icon', meta: { title: '图标', keepAlive: true }, component: () => import('@/views/Component/Icon.vue') },
       { path: 'color', name: 'Color', meta: { title: '色彩', keepAlive: false }, component: () => import('@/views/Component/Color.vue') },
@@ -58,6 +61,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  document.title = to.meta.title;
   if (!Cookie.get('userName') && to.name !== 'login') {
     next({
       replace: true,

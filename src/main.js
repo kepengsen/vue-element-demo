@@ -11,7 +11,7 @@ import Clipboard from '@/directive/clipboard/index'
 import './assets/css/basic.scss'
 import 'element-ui/lib/theme-chalk/index.css'
 
-
+require('@/assets/js/article.js')
 require('@/mock')
 
 Vue.use(ElementUI)
