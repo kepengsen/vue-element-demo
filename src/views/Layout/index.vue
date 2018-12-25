@@ -10,7 +10,7 @@
         <el-header>
           <top-bar></top-bar>
         </el-header>
-          <TagsView></TagsView>
+        <TagsView></TagsView>
         <el-main>
           <el-scrollbar class="base">
             <keep-alive>
@@ -29,28 +29,27 @@
 </template>
 
 <script>
-import LeftMenu from "@/views/Layout/LeftMenu";
-import TagsView from "@/views/Layout/TagsView";
-import TopBar from "@/views/Layout/TopBar";
+import LeftMenu from '@/views/Layout/LeftMenu';
+import TagsView from '@/views/Layout/TagsView';
+import TopBar from '@/views/Layout/TopBar';
 export default {
-  name: "layout",
-  components: { LeftMenu, TagsView,TopBar },
+  name: 'layout',
+  components: { LeftMenu, TagsView, TopBar },
   data() {
     return {};
   },
   // components: { LeftMenu },
   methods: {
     /*组件内部的方法*/
-    
   },
-  mounted() {},
+  mounted() { },
   updated() {
     /*数据更新完成*/
   }
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 body {
   background: #f4f7fa;
 }
@@ -65,14 +64,15 @@ body {
       background: #545c64;
     }
     .el-header {
-      background: #409eff;
-      color: #fff;
+      background: #fff;
+      color: #353d47;
       line-height: 60px;
+      border-bottom: 1px solid #ddd;
+      box-sizing: border-box;
     }
     .el-main {
       padding: 0;
       height: 100%;
-      
     }
     .nav-menu {
       font-size: 20px;

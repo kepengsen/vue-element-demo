@@ -29,28 +29,28 @@
 </template>
 
 <script>
-import breadcrumb from '../Breadcrumb'
-import Cookie from "js-cookie";
+import breadcrumb from '../Breadcrumb';
+import Cookie from 'js-cookie';
 export default {
-  name: "topBar",
+  name: 'topBar',
   data() {
     return {
-      userName: Cookie.get("userName") || ""
+      userName: Cookie.get('userName') || ''
     };
   },
-  components: {breadcrumb},
+  components: { breadcrumb },
   methods: {
     isCollapse() {
-      this.$store.commit("isCollapse");
+      this.$store.commit('isCollapse');
     },
     toggleLanguage() {
-      this.$store.commit("toggleLanguage");
+      this.$store.commit('toggleLanguage');
     },
-    logout(){
-      if(Cookie.get('userName')){
-        Cookie.remove('userName')
-        Cookie.remove('token')
-        this.$router.push('login')
+    logout() {
+      if (Cookie.get('userName')) {
+        Cookie.remove('userName');
+        Cookie.remove('token');
+        this.$router.push('login');
       }
     }
   },
@@ -64,4 +64,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>

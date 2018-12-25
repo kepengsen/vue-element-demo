@@ -1,11 +1,11 @@
 <template>
-  <div class="breadcrumb">
-    <el-breadcrumb separator-class="el-icon-arrow-right">
+  <div class='breadcrumb'>
+    <el-breadcrumb separator-class='el-icon-arrow-right'>
       <el-breadcrumb-item
-        separator="/"
-        v-for="(item,index) in breadlist"
-        :key="index"
-        :to="{path:item.path}"
+        separator='/'
+        v-for='(item,index) in breadlist'
+        :key='index'
+        :to='{path:item.path}'
       >{{item.meta.title}}</el-breadcrumb-item>
     </el-breadcrumb>
   </div>
@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: "breadcrumb",
+  name: 'breadcrumb',
   data() {
     return {
       breadlist: []
@@ -25,12 +25,12 @@ export default {
   },
   methods: {
     getBread() {
-       this.breadlist= this.$route.matched;
-      this.$route.matched.forEach((item, index) => {
+      this.breadlist = this.$route.matched;
+      this.$route.matched.forEach((item) => {
         // item.meta.title === '首页' ? item.path = '/' : this.$route.path === item.path;
-        if(item.path==''){
-            item.meta.title="首页"
-            item.path="/"
+        if (item.path === '') {
+          item.meta.title = '首页';
+          item.path = '/';
         }
       });
     }
@@ -49,5 +49,10 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
+
+.breadcrumb .el-breadcrumb__item{
+  height: 60px;
+  line-height: 60px;
+}
 </style>

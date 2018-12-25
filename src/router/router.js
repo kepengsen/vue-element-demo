@@ -1,10 +1,10 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '@/views/Home.vue'
-import Layout from '@/views/Layout'
-import Cookie from 'js-cookie'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Home from '@/views/Home.vue';
+import Layout from '@/views/Layout';
+import Cookie from 'js-cookie';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   { path: '/login', name: 'login', component: () => import('@/views/login/AppLogin.vue') },
@@ -15,7 +15,7 @@ const routes = [
     redirect: '/home',
     children: [
       { path: 'home', name: 'home', meta: { title: '首页', keepAlive: true }, component: Home },
-      { path: 'button', name: 'Button', meta: { title: '按钮', keepAlive: false }, component: () => import('@/views/Component/Button.vue'), },
+      { path: 'button', name: 'Button', meta: { title: '按钮', keepAlive: false }, component: () => import('@/views/Component/Button.vue') },
       { path: 'icon', name: 'Icon', meta: { title: '图标', keepAlive: true }, component: () => import('@/views/Component/Icon.vue') },
       { path: 'color', name: 'Color', meta: { title: '色彩', keepAlive: false }, component: () => import('@/views/Component/Color.vue') },
       { path: 'layout', name: 'Layout', meta: { title: '布局', keepAlive: true }, component: () => import('@/views/Component/Layout.vue') },
@@ -42,23 +42,19 @@ const routes = [
       { path: 'loading', name: 'Loading', meta: { title: '加载', keepAlive: true }, component: () => import('@/views/Notice/Loading.vue') },
       { path: 'message', name: 'Message', meta: { title: '消息提示', keepAlive: true }, component: () => import('@/views/Notice/Message.vue') },
       { path: 'messageBox', name: 'MessageBox', meta: { title: '弹框', keepAlive: true }, component: () => import('@/views/Notice/MessageBox.vue') },
-      { path: 'notification', name: 'Notification', meta: { title: '通知', keepAlive: true }, component: () => import('@/views/Notice/Notification.vue') },
+      { path: 'notification', name: 'Notification', meta: { title: '通知', keepAlive: true }, component: () => import('@/views/Notice/Notification.vue') }
     ]
   },
   // 最后是404页面
-  { path: "*", meta: { title: "404" }, component: () => import('@/views/Notfound') }
+  { path: '*', meta: { title: '404' }, component: () => import('@/views/Notfound') }
 
-]
-
+];
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes: [...routes],
-  scrollBehavior(to, from, savedPosition) {
-    // return 期望滚动到哪个的位置
-  }
-})
+  routes: [...routes]
+});
 
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title;
@@ -66,15 +62,14 @@ router.beforeEach((to, from, next) => {
     next({
       replace: true,
       name: 'login'
-    })
+    });
   } else if (Cookie.get('userName') && to.name === 'login') {
     next({
-      name: 'about'
-    })
+      name: 'home'
+    });
   } else {
     next();
   }
+});
 
-})
-
-export default router
+export default router;

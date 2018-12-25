@@ -1,25 +1,25 @@
-import Vue from 'vue'
-import App from '@/App.vue'
-import router from '@/router/router'
-import store from '@/vuex/store'
-import axios from '@/request/http'
-import ElementUI from 'element-ui'
-import VueParticles from 'vue-particles'
+import Vue from 'vue';
+import App from '@/App.vue';
+import router from '@/router/router';
+import store from '@/vuex/store';
+import axios from '@/request/http';
+import ElementUI from 'element-ui';
+import VueParticles from 'vue-particles';
 //指令
-import Clipboard from '@/directive/clipboard/index'
+import Clipboard from '@/directive/clipboard/index';
 //样式
-import './assets/css/basic.scss'
-import 'element-ui/lib/theme-chalk/index.css'
+import './assets/css/basic.scss';
+import 'element-ui/lib/theme-chalk/index.css';
 
-require('@/assets/js/article.js')
-require('@/mock')
+require('@/assets/js/article.js');
+require('@/mock');
 
-Vue.use(ElementUI)
-Vue.use(Clipboard)
+Vue.use(ElementUI);
+Vue.use(Clipboard);
 // 粒子特效
-Vue.use(VueParticles)
+Vue.use(VueParticles);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 //定义全局变量
 Vue.prototype.axios = axios;
 
@@ -28,4 +28,4 @@ new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');

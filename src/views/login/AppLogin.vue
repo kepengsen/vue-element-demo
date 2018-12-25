@@ -70,40 +70,38 @@
 </template>
 
 <script>
-import Cookie from 'js-cookie'
+import Cookie from 'js-cookie';
 export default {
-  name: "Applogin",
+  name: 'Applogin',
   data() {
     return {
       logining: false,
-      fromUrl: "/",
+      fromUrl: '/',
       ruleForm: {
-        username: "admin",
-        password: "123456"
+        username: 'admin',
+        password: '123456'
       },
       rules: {
-        username: [{ required: true, message: "请输入账号", trigger: "blur" }],
-        password: [{ required: true, message: "请输入密码", trigger: "blur" }]
+        username: [{ required: true, message: '请输入账号', trigger: 'blur' }],
+        password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
       },
       checked: false
     };
   },
   methods: {
-    handleSubmit(){
-      this.$refs.ruleForm.validate(valid=>{
-        if(valid){
-         this.axios.post('/login',{username:this.ruleForm.account,password:this.ruleForm.password})
-         .then(response=>{
-           Cookie.set('userName',response.user.userName)
-           Cookie.set('token',response.user.token)
-           this.$router.push("about");
-         })
-        }else{
-          return false;
-        }
-      })
+    handleSubmit() {
+      this.$refs.ruleForm.validate(valid => {
+        if (!valid) return false;
+        this.axios.post('/login', { username: this.ruleForm.account, password: this.ruleForm.password })
+          .then(response => {
+            Cookie.set('userName', response.user.userName);
+            Cookie.set('token', response.user.token);
+            this.$router.push('home');
+          });
+        return true;
+      });
     }
-  },
+  }
 };
 </script>
 
@@ -113,7 +111,6 @@ export default {
   margin-bottom: 15px;
   color: #fff;
 }
-
 .page {
   background-color: #2a3a40;
   position: absolute;
@@ -125,7 +122,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   overflow: hidden;
 }
-
 .login-box {
   position: absolute;
   top: 50%;
