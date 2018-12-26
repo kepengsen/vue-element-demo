@@ -2,7 +2,6 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '@/views/Home.vue';
 import Layout from '@/views/Layout';
-import Cookie from 'js-cookie';
 
 Vue.use(VueRouter);
 
@@ -54,22 +53,6 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [...routes]
-});
-
-router.beforeEach((to, from, next) => {
-  document.title = to.meta.title;
-  if (!Cookie.get('userName') && to.name !== 'login') {
-    next({
-      replace: true,
-      name: 'login'
-    });
-  } else if (Cookie.get('userName') && to.name === 'login') {
-    next({
-      name: 'home'
-    });
-  } else {
-    next();
-  }
 });
 
 export default router;

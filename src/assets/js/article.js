@@ -1,12 +1,12 @@
 window.onload = function () {
     var click_cnt = 0;
     var special_cnt = 0;
-    var anim;
     var default_text = '❤';
     var special_text = ['(๑•́ ∀ •̀๑)', 'OωO', '(๑•́ ₃ •̀๑)', '(๑•̀_•́๑)', '（￣へ￣）', 'o(￣▽￣)d', '╮(｡>口<｡)╭', '(o゜▽゜)o☆', '(ꐦ°᷄д°᷅)'];
     var $html = document.getElementsByTagName('html')[0];
     var $body = document.getElementsByTagName('body')[0];
     $html.onclick = function (e) {
+        var anim;
         var $elem = document.createElement('b');
         $elem.style.color = '#E94F06';
         $elem.style.zIndex = 9999;
