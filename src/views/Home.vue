@@ -1,15 +1,15 @@
 <template>
-  <div class="about">
-    <div class="content">
+  <div class='home'>
+    <div class='content'>
       <h1>我是about</h1>
       <ul>
-        <li v-for="(item,key) in dataList" :key="key">
+        <li v-for='(item,key) in dataList' :key='key'>
           <h3>{{item.title}}</h3>
           <p>
             {{item.author_name}}
             <span>{{item.date}}</span>
           </p>
-          <img :src="item.pic" alt>
+          <img :src='item.pic' alt>
         </li>
       </ul>
     </div>
@@ -17,7 +17,7 @@
 </template>
 <script>
 export default {
-  name: "about",
+  name: 'home',
   data() {
     return {
       dataList: []
@@ -25,13 +25,13 @@ export default {
   },
   methods: {
     getNews() {
-      this.axios.post("/news").then(response => {
+      this.axios.post('/news').then(response => {
         this.dataList = response.data;
       });
     },
     getUser() {
-      this.axios.post("/navigation/data").then(response => {
-        console.log(response)
+      this.axios.post('/navigation/data').then(response => {
+        console.log(response);
       });
     }
   },
@@ -42,6 +42,5 @@ export default {
   }
 };
 </script>
-<style lang="css">
-
+<style lang='css'>
 </style>

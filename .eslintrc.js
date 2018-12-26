@@ -51,7 +51,7 @@ module.exports = {
     "curly": [0, "all"], //强制使用花括号的风格
     "default-case": 0, //在switch语句中需要有default语句
     "dot-notation": ["error", { "allowKeywords": false, "allowPattern": "" }], //获取对象属性的时候使用点号
-    "eqeqeq": ["error", "smart"], //比较的时候使用严格等于
+    "eqeqeq": [0, "smart"], //比较的时候使用严格等于
     "no-alert": 1, //不允许使用alert，confirm，prompt语句
     "no-caller": 2, //不允许使用arguments.callee和arguments.caller属性
     "guard-for-in": 0, //监视for in循环，防止出现不可预料的情况
@@ -105,7 +105,7 @@ module.exports = {
     "no-unused-vars": [2, { "vars": "all", "args": "after-used" }], //不允许有声明后未使用的变量或者参数
     "no-use-before-define": [2, "nofunc"], //不允许在未定义之前就使用变量"indent": 2, //强制一致的缩进风格
     "brace-style": [2, "1tbs", { "allowSingleLine": false }], //大括号风格
-    "camelcase": [2, { "properties": "never" }], //强制驼峰命名规则
+    "camelcase": [0, { "properties": "never" }], //强制驼峰命名规则
     "comma-style": [2, "last"], //逗号风格
     "consistent-this": [0, "self"], //当获取当前环境的this是用一样的风格
     "eol-last": 2, //文件以换行符结束

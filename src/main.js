@@ -10,6 +10,8 @@ import Clipboard from '@/directive/clipboard/index';
 //样式
 import './assets/css/basic.scss';
 import 'element-ui/lib/theme-chalk/index.css';
+// import NProgress from 'nprogress';
+// import 'nprogress/nprogress.css';
 
 require('@/assets/js/article.js');
 require('@/mock');
@@ -23,6 +25,10 @@ Vue.config.productionTip = false;
 //定义全局变量
 Vue.prototype.axios = axios;
 
+
+// router.afterEach(transition => {
+//   NProgress.done();
+// });
 
 new Vue({
   router,

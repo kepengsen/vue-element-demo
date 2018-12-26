@@ -96,7 +96,7 @@ export default {
           .then(response => {
             Cookie.set('userName', response.user.userName);
             Cookie.set('token', response.user.token);
-            this.$router.push('home');
+            this.$router.push({ path: '/' });
           });
         return true;
       });

@@ -8,7 +8,7 @@
 </template>
 <script>
 export default {
-  name: "notfound",
+  name: 'notfound',
   methods: {
     goBack() {
       this.$router.go(-1);
@@ -16,7 +16,7 @@ export default {
   }
 };
 </script>
-<style scoped lang="scss">
+<style scoped lang='scss'>
 h1 {
   text-align: center;
   font-size: 12em;
