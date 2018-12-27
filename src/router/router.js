@@ -24,7 +24,6 @@ const routes = [
       { path: 'radio', name: 'Radio', meta: { title: '单选', keepAlive: false }, component: () => import('@/views/Form/Radio.vue') },
       { path: 'checkbox', name: 'Checkbox', meta: { title: '多选', keepAlive: false }, component: () => import('@/views/Form/Checkbox.vue') },
       { path: 'input', name: 'Input', meta: { title: '输入框', keepAlive: false }, component: () => import('@/views/Form/Input.vue') },
-      { path: 'inputNumber', name: 'InputNumber', meta: { title: '输入框', keepAlive: true }, component: () => import('@/views/Form/InputNumber.vue') },
       { path: 'select', name: 'Select', meta: { title: '下拉框', keepAlive: true }, component: () => import('@/views/Form/Select.vue') },
       { path: 'cascader', name: 'Cascader', meta: { title: '级联选择器', keepAlive: true }, component: () => import('@/views/Form/Cascader.vue') },
       { path: 'switch', name: 'switchs', meta: { title: '开关', keepAlive: true }, component: () => import('@/views/Form/Switch.vue') },

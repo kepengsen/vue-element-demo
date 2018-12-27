@@ -22,7 +22,6 @@ export default [
       { name: '单选框', name_en: 'Radio', router: '/radio' },
       { name: '多选框', name_en: 'Checkbox', router: '/checkbox' },
       { name: '输入框', name_en: 'Input', router: '/input' },
-      { name: '计数器', name_en: 'InputNumber', router: '/inputNumber' },
       { name: '选择器', name_en: 'Select', router: '/select' },
       { name: '级联选择器', name_en: 'Cascader', router: '/cascader' },
       { name: '开关', name_en: 'Switch', router: '/switch' },
