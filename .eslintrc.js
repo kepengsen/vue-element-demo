@@ -47,7 +47,7 @@ module.exports = {
     }], //在使用typeof表达式比较的时候强制使用有效的字符串
     "block-scoped-var": 2, //将变量声明放在合适的代码块里
     "complexity": 0, //限制条件语句的复杂度
-    "consistent-return": 2, //无论有没有返回值都强制要求return语句返回一个值
+    "consistent-return": 0, //无论有没有返回值都强制要求return语句返回一个值
     "curly": [0, "all"], //强制使用花括号的风格
     "default-case": 0, //在switch语句中需要有default语句
     "dot-notation": ["error", { "allowKeywords": false, "allowPattern": "" }], //获取对象属性的时候使用点号
