@@ -47,9 +47,10 @@ export default {
       this.$store.commit('toggleLanguage');
     },
     logout() {
-      if (Cookie.get('userName')) {
-        Cookie.remove('userName');
+      if (Cookie.get('token')) {
         Cookie.remove('token');
+         this.$store.commit('SET_TOKEN', '');
+         this.$store.commit('SET_ROLES', []);
         this.$router.push('login');
       }
     }

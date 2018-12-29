@@ -24,9 +24,19 @@ Mock.mock('/news', 'post', {
 
 Mock.mock('/login', 'post', {
     user: {
-        'userName': '@cname',
         'token': '@string(30)'
     },
+    code: 200,
+    ret: 'success',
+    msg: '成功'
+});
+
+Mock.mock('/getUserInfo', 'post', {
+    data: {
+        'roles': ['admin'],
+        'name': '@cname'
+    },
+    code: 200,
     ret: 'success',
     msg: '成功'
 });

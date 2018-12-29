@@ -1,5 +1,5 @@
 <template>
-  <div class='home'>
+  <div class='dashboard'>
     <div class='content'>
       <h1>我是about</h1>
       <ul>
@@ -17,7 +17,7 @@
 </template>
 <script>
 export default {
-  name: 'home',
+  name: 'dashboard',
   data() {
     return {
       dataList: []

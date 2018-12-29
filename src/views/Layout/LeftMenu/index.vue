@@ -17,18 +17,19 @@
           :router='true'
         >
           <template v-for='(item,key) in MenuList'>
-            <el-submenu v-if='item.children.length != 0' :index='item.router' :key='key'>
+            <el-submenu v-if='item.children.length != 0' :index='item.path' :key='key'>
               <template slot='title'>
                 <i :class='item.icon'></i>
                 <span>{{langType=='en'? item.name_en: item.name}}</span>
               </template>
               <el-menu-item
                 v-for='child in item.children'
-                :index='child.router'
-                :key='child.router'
+                :index='item.path+"/"+child.path'
+                :key='child.path'
               >{{langType=='en'? child.name_en: child.name}}</el-menu-item>
             </el-submenu>
-            <el-menu-item v-else :index='item.router' :key='key'>
+
+            <el-menu-item v-else :index='item.path' :key='key'>
               <i :class='item.icon'></i>
               <span>{{langType === 'en'? item.name_en: item.name}}</span>
             </el-menu-item>
@@ -41,22 +42,24 @@
 </template>
 
 <script>
-import store from '@/vuex/store.js';
-import MenuList from './MenuList.js';
+import store from '@/vuex';
 export default {
   name: 'LeftMenu',
   data() {
     return {
-      MenuList: MenuList
     };
   },
   store,
   computed: {
     langType() {
-      return this.$store.state.langType ? 'cn' : 'en';
+      return this.$store.state.TagsView.langType ? 'cn' : 'en';
     },
     menuSelect() {
       return this.$route.path;
+    },
+    MenuList(){
+      // return this.$store.getters.permission_routers;
+      return this.$store.getters.addRouters;
     }
   },
   components: {},

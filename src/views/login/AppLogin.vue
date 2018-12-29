@@ -94,8 +94,8 @@ export default {
         if (!valid) return false;
         this.axios.post('/login', { username: this.ruleForm.account, password: this.ruleForm.password })
           .then(response => {
-            Cookie.set('userName', response.user.userName);
             Cookie.set('token', response.user.token);
+            this.$store.commit('SET_TOKEN', response.user.token);
             this.$router.push({ path: '/' });
           });
         return true;
